@@ -8,8 +8,32 @@
   <!-- build:cssbundle -->
   <!-- endbuild -->
 </head>
-<body>
+<body ng-app ng-init="persons=['Pippo','Pluto','Paperino']">
 
-  <script type="text/javascript" src="assets/scripts/codice-fiscale.js"></script>
+  <div>
+    <label for="firstname">Nome</label>
+    <input type="text" name="firstname" ng-model="gigio" />
+  </div>
+
+  <h3>Hello {{ gigio }}</h3>
+  <p>{{ gigio | uppercase }}</p>
+  <p>{{ 10 + 2 }}</p>
+  <p>{{ 120 | currency }}</p>
+  <p>{{ 120 | currency:"€" }}</p>
+  <p>{{ "2017-02-22T18:00:30-01:00" | date:'EEEE of MMMM in yyyy @ HH:mm:ss' }}</p>
+  <hr />
+
+  <div>
+    <p ng-repeat="person in persons | filter:gigio | orderBy:gigio:'ASC'" ng-class-even="'even'" ng-class-odd="'odd'">
+      {{ person }}
+    </p>
+  </div>
+
+  <div ng-show="gigio === 'Pippo'">Hei, c'è Pippo!</div>
+  <div ng-hide="gigio === 'Pippo'">Non c'è Pippo.</div>
+
+  <script src="assets/libraries/angular/angular.min.js">
+    
+  </script>
 </body>
 </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Calcolo del codice fiscale</title>
+  <!-- build:cssvendor -->
+  <!-- endbuild -->
+
+  <!-- build:cssbundle -->
+  <!-- endbuild -->
+</head>
+<body>
+  <p id="result"></p>
+  <form>
+    <div>
+      <label for="firstname">Nome</label>
+      <input type="text" name="firstname" id="firstname" />
+
+      <label for="lastname">Cognome</label>
+      <input type="text" name="lastname" id="lastname" />
+    </div>
+
+    <div>
+      <label for="year">Anno</label>
+      <select name="year" id="year">
+        <option value="2017">2014</option>
+        <option value="2013">2013</option>
+        <option value="2012">2012</option>
+        <option value="2011">2011</option>
+        <option value="2010">2010</option>
+        <option value="2000">2000</option>
+        <option value="1990">1990</option>
+        <option value="1980">1980</option>
+      </select>
+
+      <label for="month">Mese</label>
+      <select name="month" id="month">
+        <option value="gennaio">Gennaio</option>
+        <option value="febbraio">Febbraio</option>
+        <option value="marzo">Marzo</option>
+        <option value="aprile">Aprile</option>
+        <option value="maggio">Maggio</option>
+        <option value="giugno">Giugno</option>
+        <option value="luglio">Luglio</option>
+        <option value="agosto">Agosto</option>
+        <option value="settembre">Settembre</option>
+        <option value="ottobre">Ottobre</option>
+        <option value="novembre">Novembre</option>
+        <option value="dicembre">Dicembre</option>
+      </select>
+
+      <label for="day">Giorno</label>
+      <input type="number" name="day" id="day" min="1" max="31" step="1" />
+    </div>
+
+    <div>
+      <label>Sesso</label>
+
+      <label for="male">Maschio</label>
+      <input type="radio" name="sex" id="male" value="M" />
+
+      <label for="female">Femmina</label>
+      <input type="radio" name="sex" id="female" value="F" />
+    </div>
+
+    <button type="submit" id="calculate">Calcola</button>
+    <button type="reset">Cancella</button>
+  </form>
+
+  <script type="text/javascript" src="assets/scripts/codice-fiscale.js"></script>
+</body>
+</html>

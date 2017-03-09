@@ -3,21 +3,26 @@
 */
 
 var partialCode = cognome('Buffa') + nome('Giovanni') + anno(1983) + mese('maggio') + giornoESesso(16,'M') + comuneOStato(true);
-console.log(partialCode);
-console.log(carattereControllo(partialCode));
+var lastCode = carattereControllo(partialCode);
+
+var result = document.getElementById('result');
+result.innerHTML = partialCode + lastCode;
 
 var calculate = document.getElementById('calculate');
-var codiceFiscale = document.getElementById('codice-fiscale');
 calculate.addEventListener('click', calculateFn, false);
 
-function calculateFn(evt){
-  evt.preventDefault();
+/**
+* @cognome: event
+* return void
+*/
+function calculateFn(e){
+  e.preventDefault();
 
   var firstname = document.getElementById('firstname').value;
   var lastname = document.getElementById('lastname').value;
-  var day = document.getElementById('day').value;
-  var month = document.getElementById('month').value;
   var year = document.getElementById('year').value;
+  var month = document.getElementById('month').value;
+  var day = parseInt(document.getElementById('day').value);
   var sex = '';
 
   var sexRadios = document.getElementsByName('sex');
@@ -27,16 +32,17 @@ function calculateFn(evt){
     }
   }
 
-  var partialCode = cognome(lastname) + nome(firstname) + anno(year) + mese(month) + giornoESesso(parseInt(day), sex) + comuneOStato(true);
+  var partialCode = cognome(lastname) + nome(firstname) + anno(year) + mese(month) + giornoESesso(day, sex) + comuneOStato(true);
   var lastCode = carattereControllo(partialCode);
-  codiceFiscale.innerHTML = partialCode + lastCode;
+
+  result.innerHTML = partialCode + lastCode;
 }
 
 /**
 * @cognome: string
 * return string
 */
-function  cognome (cognome){
+function cognome(cognome){
   cognome =  cognome.toUpperCase();
   var vocali = ['A','E','I','O','U'];
 
@@ -154,7 +160,7 @@ function giornoESesso(giorno,sesso){
 * @natoInItalia: boolean
 * return string
 */
-function comuneOStato (natoInItalia){
+function comuneOStato(natoInItalia){
   //operatore ternario: il risultato è il medesimo dell'if..else sottostante
   return natoInItalia ? 'E098' : 'Z000';
   /*
@@ -170,7 +176,7 @@ function comuneOStato (natoInItalia){
 * @codice: string
 * return string
 */
-function carattereControllo (codice) {
+function carattereControllo(codice){
   var caratteri_pari =[];
   var caratteri_dispari = [];
 
