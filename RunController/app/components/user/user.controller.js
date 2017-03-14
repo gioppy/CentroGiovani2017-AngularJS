@@ -2,16 +2,26 @@
   'use strict';
 
   angular
-    .module('TestApp')
+    .module('TestingApp')
     .controller('UserController', UserController);
 
   function UserController(){
-    this.firstName = 'Pippo 1';
-    this.lastName = 'Pluto 1';
-    this.sayHi = sayHi;
+    this.firstname = 'PippO';
+    this.lastname = 'PlutO';
 
-    function sayHi(){
-      alert('Hi, from controller!');
+    this.sayHello = sayHello;
+    this.sayHelloString = sayHelloString;
+
+    setTimeout(function(){
+      this.firstname = 'Pluto';
+    }.bind(this), 3000);
+
+    function sayHello(){
+      alert('Hello ' + this.firstname);
+    }
+
+    function sayHelloString(){
+      return 'Hello ' + this.firstname;
     }
   }
 })();

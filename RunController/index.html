@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en">
 <head>
   <title>AngularJS Seed Project</title>
   <!-- build:cssvendor -->
@@ -10,22 +10,23 @@
   <link rel="stylesheet" href="assets/styles/style.min.css" />
   <!-- endbuild -->
 </head>
-<body>
-  <div>
-    <label for="name">Name</label>
-    <input type="text" name="name" ng-model="name" id="name" />
+<body ng-app="TestingApp">
+  <h1>AngularJS Seed Project</h1>
+  <p>Edit me before start!!!</p>
+  <p>{{ firstname }} {{ lastname }}</p>
+  <p>{{ sayHelloString() }}</p>
+  <p ng-click="sayHello()">Say Hello!</p>
+
+  <div ng-controller="UserController as ctrl">
+    <p>{{ ctrl.firstname }} {{ ctrl.lastname }}</p>
+    <p ng-click="ctrl.sayHello()">Say Hello!</p>
   </div>
-  <h3>Risultato</h3>
-  <p>{{ name | uppercase }}</p>
-  <p>{{ 120 | currency:"€" }}</p>
-  <p>{{ "2017-02-22T18:00:00-01:00" | date:'EEEE of MMMM in yyyy @ HH:mm:ss' }}</p>
 
-  <ul ng-init="persons=['Pippo', 'Pluto', 'Paperino', 'Andrea']">
-    <li ng-repeat="person in persons | filter:name | orderBy:name:'DESC' ">{{ person }}</li>
-  </ul>
+  <div ng-controller="ResistanceController as ctrl">
+    <span ng-repeat="color in ctrl.output">{{ color }} <span ng-if="!$last">, </span></span>
+  </div>
 
-  <div ng-show="name === 'Pippo'"><p>Ok, it's Pippo!</p></div>
-  <div ng-show="name !== 'Pippo'"><p>No, it's not pippo!</p></div>
+
 
   <!-- build:jsvendor -->
   <script type="text/javascript" src="assets/libraries/angular/angular.min.js"></script>
@@ -36,6 +37,7 @@
   <script type="text/javascript" src="app/app.config.min.js"></script>
 
   <script type="text/javascript" src="app/components/user/user.controller.min.js"></script>
+  <script type="text/javascript" src="app/components/resistance/resistance.controller.min.js"></script>
   <!-- endbuild -->
 </body>
 </html>
