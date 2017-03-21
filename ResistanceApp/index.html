@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AngularJS Seed Project</title>
+  <!-- build:cssvendor -->
+  <!-- endbuild -->
+
+  <!-- build:cssbundle -->
+  <link rel="stylesheet" href="assets/fonts/fonts.min.css" />
+  <link rel="stylesheet" href="assets/styles/style.min.css" />
+  <style type="text/css">
+    .resistance-color{
+      display: inline-block;
+      width: 50px;
+      height: 100px;
+    }
+
+    .first-element{
+      border: 1px solid black;
+    }
+
+    .last-element{
+      border:  1px solid red;
+    }
+  </style>
+  <!-- endbuild -->
+</head>
+<body ng-app="ResistanceApp">
+
+  <div ng-controller="ResistanceController as ctrl">
+    <input type="text" ng-model="ctrl.resistenza" />
+    <button ng-click="ctrl.calcolaResistenza()">Calcola resistenza</button>
+    <div>
+      <span 
+        ng-repeat="color in ctrl.output track by $index" 
+        class="resistance-color" 
+        ng-style="{'background-color': color}" 
+        ng-class="{'first-element': $first, 'last-element': $last}">
+      </span>
+    </div>
+  </div>
+
+  <!-- build:jsvendor -->
+  <script type="text/javascript" src="assets/libraries/angular/angular.min.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:jsbundle -->
+  <script type="text/javascript" src="app/app.module.min.js"></script>
+  <script type="text/javascript" src="app/app.config.min.js"></script>
+
+  <script type="text/javascript" src=app/shared/colors/colors.factory.min.js></script>
+  <script type="text/javascript" src=app/shared/colors/colors.service.min.js></script>
+
+  <script type="text/javascript" src="app/components/resistance/resistance.controller.min.js"></script>
+  <!-- endbuild -->
+</body>
+</html>

@@ -8,21 +8,18 @@
   <!-- build:cssbundle -->
   <link rel="stylesheet" href="assets/fonts/fonts.min.css" />
   <link rel="stylesheet" href="assets/styles/style.min.css" />
+  <style type="text/css">
+    .resistance-color{
+      display: inline-block;
+      width: 50px;
+      height: 100px;
+    }
+  </style>
   <!-- endbuild -->
 </head>
-<body ng-app="TestingApp">
-  <h1>AngularJS Seed Project</h1>
-
-  <h2>From $rootScope</h2>
-  <p>{{ firstname }} {{ lastname }}</p>
-  <p>{{ sayHelloString() }}</p>
-  <p ng-click="sayHello()">Say Hello!</p>
-
-  <div ng-controller="UserController as ctrl">
-    <h2>From a controller</h2>
-    <p>{{ ctrl.firstname }} {{ ctrl.lastname }}</p>
-    <p ng-click="ctrl.sayHello()">Say Hello!</p>
-  </div>
+<body ng-app="ResistanceApp">
+  <h2>Resistance directive</h2>
+  <resistance></resistance>
 
   <!-- build:jsvendor -->
   <script type="text/javascript" src="assets/libraries/angular/angular.min.js"></script>
@@ -32,7 +29,10 @@
   <script type="text/javascript" src="app/app.module.min.js"></script>
   <script type="text/javascript" src="app/app.config.min.js"></script>
 
-  <script type="text/javascript" src="app/components/user/user.controller.min.js"></script>
+  <script type="text/javascript" src=app/shared/colors/colors.service.min.js></script>
+
+  <script type="text/javascript" src="app/components/resistance/resistance.directive.min.js"></script>
+  <script type="text/javascript" src="app/components/resistance/resistance-color.directive.min.js"></script>
   <!-- endbuild -->
 </body>
 </html>

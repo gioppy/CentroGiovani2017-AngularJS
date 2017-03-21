@@ -1,0 +1,5 @@
+npm-debug.log
+assets/libraries
+node_modules
+dev
+dist
