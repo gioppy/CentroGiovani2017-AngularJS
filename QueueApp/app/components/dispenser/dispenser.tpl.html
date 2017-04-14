@@ -1,3 +1,3 @@
 <p>DISPENSER</p>
 
-<app-queue ng-repeat="queue in $ctrl.queues"></app-queue>
+<app-queue ng-repeat="queue in $ctrl.queues" data="queue" on-ticket="$ctrl.onTicket($id)"></app-queue>

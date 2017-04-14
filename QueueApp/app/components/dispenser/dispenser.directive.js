@@ -12,6 +12,11 @@
 
   function DispenserController(QueueService){
     this.queues = QueueService.getQueues();
+    this.onTicket = onTicket;
+
+    function onTicket(id){
+      QueueService.incrementDispensedItems(id);
+    }
   }
 
   /*function AppDispenserDirective(){

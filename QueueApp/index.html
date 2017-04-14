@@ -12,11 +12,17 @@
   <!-- endbuild -->
 </head>
 <body ng-app="QueueApp">
+  <div class="nav has-shadow"></div>
 
-  <app-dispenser></app-dispenser>
+  <div class="section">
+    <div class="container">
+      <ng-view></ng-view>
+    </div>
+  </div>
 
   <!-- build:jsvendor -->
   <script type="text/javascript" src="assets/libraries/angular/angular.min.js"></script>
+  <script type="text/javascript" src="assets/libraries/angular-route/angular-route.min.js"></script>
   <!-- endbuild -->
 
   <!-- build:jsbundle -->

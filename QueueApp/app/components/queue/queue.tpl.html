@@ -1,1 +1,13 @@
-<p>ONE QUEUE</p>
+<div class="card">
+  <header class="card-header">
+    <h2 class="card-header-title">Box office {{ ::$ctrl.data.boxOffice }}</h2>
+  </header>
+  <div class="card-content">
+    <h3>Current number: {{ $ctrl.data.currentItem }}</h3>
+    <p>{{ ::$ctrl.data.description }}</p>
+    <p>Dispensed items: {{ $ctrl.data.dispensedItems }}</p>
+  </div>
+  <div class="card-footer">
+    <a class="card-footer-item" ng-click="$ctrl.handleGetTicket($ctrl.data.id)">Get one ticket</a>
+  </div>
+</div>
